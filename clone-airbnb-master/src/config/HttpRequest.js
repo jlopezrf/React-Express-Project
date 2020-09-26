@@ -1,0 +1,22 @@
+import axios from 'axios'
+
+const URL_BASE = 'http://localhost:3001'
+
+export const requestHttp = async (method = 'post', endPoint, body = {}, params = {}) => {
+    try {
+        const url = `${URL_BASE}${endPoint}`;
+        const options = {
+            method,
+            url,
+            data: body,
+            params
+        }
+
+        const response = await axios(options);
+        const {data} = response;
+        return data;
+
+    } catch (error) {
+        throw error;
+    }
+};
