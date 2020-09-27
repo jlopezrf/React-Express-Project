@@ -26,7 +26,14 @@ export const BookingPage = () => {
             email,
             bookingDate
         };
-        const response = await requestHttp('post', '/booking/makebooking', body);
+        var response;
+        try {
+            await requestHttp('post', '/booking/makebooking', body);
+            window.alert('Bokking Succes');
+        } catch (error) {
+            window.alert('it was not possible to make the reservation')
+        }
+       
     }
 
     useEffect(() => {

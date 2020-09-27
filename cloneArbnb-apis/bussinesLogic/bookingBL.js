@@ -12,8 +12,8 @@ const makeBooking = async (body) => {
     try {
         const response = await bookingModel.save((err) => {
             if(err) throw err;
-            console.log("Document inserted succussfully!");
         });
+        return {status: '200', msg: 'Booking succes'};
     } catch (error) {
         console.error(error);
         throw error;
